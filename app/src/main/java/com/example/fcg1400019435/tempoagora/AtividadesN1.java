@@ -1,18 +1,49 @@
 package com.example.fcg1400019435.tempoagora;
 
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+import android.widget.ListAdapter;
+import android.widget.ListView;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 
 @SuppressWarnings("deprecation")
 public class AtividadesN1 extends ActionBarActivity {
 
+    private ListAdapter mAdaptador;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_atividades_n1);
+
+        String[] dados = {
+
+                "segunda-feira - chuva",
+                "terça-feira - sol",
+        };
+
+        //Transforma dados em uma lista
+        List<String> previsao = new ArrayList<>(Arrays.asList(dados) );
+
+        //Cria o Adptador
+        mAdaptador = new ArrayAdapter<>(
+                getApplicationContext(), // Contexto atual
+                R.layout.item_lista_principal, // Nome do ID do layout
+                R.id.item_texto, // ID do TextView a ser preenchido
+                previsao);
+
+        // Conecta a lista ao adaptador
+        ListView listView = (ListView) findViewById(R.id.lista_principal);
+        listView.setAdapter(mAdaptador);
     }
 
     @Override
