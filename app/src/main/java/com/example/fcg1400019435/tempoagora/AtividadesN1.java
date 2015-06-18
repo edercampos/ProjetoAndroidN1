@@ -4,9 +4,12 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -16,7 +19,7 @@ import java.util.List;
 @SuppressWarnings("deprecation")
 public class AtividadesN1 extends ActionBarActivity {
 
-    private ListAdapter mAdaptador;
+    private ArrayAdapter<String> mAdaptador;
 
 
 
@@ -29,6 +32,11 @@ public class AtividadesN1 extends ActionBarActivity {
 
                 "segunda-feira - chuva",
                 "terça-feira - sol",
+                "quarta- feira - tempestade",
+                "quinta-feira - tempestade",
+                "sexta-feira - tempestade",
+                "sabado - muito quente",
+                "domingo - sol"
         };
 
         //Transforma dados em uma lista
@@ -44,6 +52,8 @@ public class AtividadesN1 extends ActionBarActivity {
         // Conecta a lista ao adaptador
         ListView listView = (ListView) findViewById(R.id.lista_principal);
         listView.setAdapter(mAdaptador);
+
+        listView.setOnItemClickListener(new ItemClicado());
     }
 
     @Override
@@ -66,5 +76,19 @@ public class AtividadesN1 extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    //sub classe para dar função ao click
+    private class ItemClicado implements AdapterView.OnItemClickListener{
+
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+
+            Toast.makeText(getApplicationContext(),
+                    mAdaptador.getItem(position),
+                    Toast.LENGTH_SHORT
+            ).show();
+        }
     }
 }
