@@ -22,7 +22,15 @@ public class AtividadesN1 extends ActionBarActivity {
 
     private ArrayAdapter<String> mAdaptador;
 
-
+    private String[] detalhe = {
+            "tempo chuvoso vamos tomas uma mineira",
+            "tempo ensolarado tomar uma gelada",
+            "tempestade ficar em casa",
+            "tempestade ficar em casa",
+            "tempestade mas é sexta vamos tomar uma",
+            "muito quente ideal uma piscina",
+            "dia de churrasco aconpanhado de uma gelada"
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,8 +93,14 @@ public class AtividadesN1 extends ActionBarActivity {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
+            String texto = "sem previsão";
+
+            if (detalhe.length > position) {
+                texto = detalhe[position];
+            }
+
             Intent detailIntent = new Intent(getApplication(), Detalhes.class);
-            detailIntent.putExtra(Intent.EXTRA_TEXT, mAdaptador.getItem(position));
+            detailIntent.putExtra(Intent.EXTRA_TEXT, mAdaptador.getItem(position) + " " + texto);
             startActivity(detailIntent);
         }
     }

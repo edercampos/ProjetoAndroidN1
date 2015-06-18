@@ -1,9 +1,11 @@
 package com.example.fcg1400019435.tempoagora;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 
 @SuppressWarnings("deprecation")
@@ -13,6 +15,16 @@ public class Detalhes extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detalhes);
+
+        Intent intent = getIntent();
+        String detailText = intent.getStringExtra(Intent.EXTRA_TEXT);
+
+        if (intent.hasExtra(Intent.EXTRA_TEXT)){
+            TextView detailTextView = (TextView) findViewById(R.id.detalhe_item_texto);
+            detailTextView.setText(detailText);
+        }
+
+
     }
 
     @Override
