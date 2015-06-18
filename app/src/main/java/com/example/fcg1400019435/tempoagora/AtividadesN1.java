@@ -1,5 +1,6 @@
 package com.example.fcg1400019435.tempoagora;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
@@ -84,11 +85,9 @@ public class AtividadesN1 extends ActionBarActivity {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-
-            Toast.makeText(getApplicationContext(),
-                    mAdaptador.getItem(position),
-                    Toast.LENGTH_SHORT
-            ).show();
+            Intent detailIntent = new Intent(getApplication(), Detalhes.class);
+            detailIntent.putExtra(Intent.EXTRA_TEXT, mAdaptador.getItem(position));
+            startActivity(detailIntent);
         }
     }
 }
