@@ -1,10 +1,14 @@
 package com.example.fcg1400019435.tempoagora;
 
 import android.content.Intent;
+import android.provider.Contacts;
+import android.provider.ContactsContract;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 
@@ -24,7 +28,10 @@ public class Detalhes extends ActionBarActivity {
             detailTextView.setText(detailText);
         }
 
+        Button botao = (Button) findViewById(R.id.botao1);
 
+
+        botao.setOnClickListener(new clique());
     }
 
     @Override
@@ -47,5 +54,23 @@ public class Detalhes extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+    //utilizando uma intent
+    private class clique implements View.OnClickListener{
+
+        public void insertContact(String name) {
+            Intent intent = new Intent(Intent.ACTION_INSERT);
+            intent.setType(ContactsContract.Contacts.CONTENT_TYPE);
+            intent.putExtra(Contacts.Intents.Insert.NAME, name);
+
+            if (intent.resolveActivity(getPackageManager()) != null) {
+                startActivity(intent);
+            }
+        }
+
+        @Override
+        public void onClick(View v) {
+            insertContact("");
+        }
     }
 }

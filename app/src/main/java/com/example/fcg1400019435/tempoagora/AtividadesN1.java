@@ -2,6 +2,7 @@ package com.example.fcg1400019435.tempoagora;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.Contacts;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -104,4 +105,6 @@ public class AtividadesN1 extends ActionBarActivity {
             startActivity(detailIntent);
         }
     }
+
+
 }
