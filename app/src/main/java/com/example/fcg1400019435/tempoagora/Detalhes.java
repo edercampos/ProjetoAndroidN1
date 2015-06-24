@@ -70,7 +70,11 @@ public class Detalhes extends ActionBarActivity {
 
         @Override
         public void onClick(View v) {
-            insertContact("");
+            //acha o textview
+            // usa o texto dele no contato
+            TextView detailTextView = (TextView) findViewById(R.id.detalhe_item_texto);
+
+            insertContact(detailTextView.getText().toString());
         }
     }
 }
