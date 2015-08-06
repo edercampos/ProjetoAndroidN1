@@ -5,4 +5,20 @@
     <string name="action_settings">Settings</string>
     <string name="title_activity_detalhes">Detalhes</string>
     <string name="title_activity_atividade_configuracao">AtividadeConfiguracao</string>
+
+
+    <string name="conf_cidade_chave">cidade</string>
+    <string name="conf_cidade_titulo">Cidade</string>
+
+    <string-array name="conf_cidades_nome">
+        <item>Campo Grande</item>
+        <item>Dourados</item>
+        <item>Corumbá</item>
+    </string-array>
+    <string-array
+        name="conf_cidades_valor">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
 </resources>

@@ -1,6 +1,8 @@
 package com.example.fcg1400019435.tempoagora;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.provider.Contacts;
 import android.provider.ContactsContract;
 import android.support.v7.app.ActionBarActivity;
@@ -10,6 +12,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import java.util.Arrays;
 
 
 @SuppressWarnings("deprecation")
@@ -23,8 +27,24 @@ public class Detalhes extends ActionBarActivity {
         Intent intent = getIntent();
         String detailText = intent.getStringExtra(Intent.EXTRA_TEXT);
 
+
         if (intent.hasExtra(Intent.EXTRA_TEXT)){
             TextView detailTextView = (TextView) findViewById(R.id.detalhe_item_texto);
+
+            // Pegar SharedPreferences
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+            // Pegar a configuracao que eu quero
+            String cidade_sel = prefs.getString(getString(R.string.conf_cidade_chave), getString(R.string.conf_cidade_chave));
+
+            String[] nomes = getResources().getStringArray(R.array.conf_cidades_nome);
+            String[] valores = getResources().getStringArray(R.array.conf_cidades_valor);
+
+            int pos = Arrays.asList(valores).indexOf(cidade_sel);
+
+            String nome = nomes[pos];
+
+            detailText = "A Previsão Para " + nome + " éh" + detailText;
+
             detailTextView.setText(detailText);
         }
 

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ListPreference
+        android:key="@string/conf_cidade_chave"
+        android:title="@string/conf_cidade_titulo"
+        android:dialogTitle="@string/conf_cidade_titulo"
+        android:entries="@array/conf_cidades_nome"
+        android:entryValues="@array/conf_cidades_valor"
+        android:defaultValue="1" />
+</PreferenceScreen>
