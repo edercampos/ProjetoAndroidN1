@@ -20,6 +20,14 @@
             android:name=".Detalhes"
             android:label="@string/title_activity_detalhes" >
         </activity>
+        <activity
+            android:name=".AtividadeConfiguracao"
+            android:label="@string/title_activity_atividade_configuracao"
+            android:parentActivityName=".AtividadesN1" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.fcg1400019435.tempoagora.AtividadesN1" />
+        </activity>
     </application>
 
 </manifest>
